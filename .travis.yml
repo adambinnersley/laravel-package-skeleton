@@ -1,0 +1,25 @@
+language: php
+
+php:
+  - '7.4'
+  - '8.0'
+
+services:
+  - mysql
+  - redis-server
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+install:
+  - composer install
+
+script:
+  - vendor/bin/phpunit
+
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover clover.xml
+  
+sudo: required

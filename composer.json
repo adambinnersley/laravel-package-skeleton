@@ -1,0 +1,39 @@
+{
+    "name": "adamb/laravel-package-skeleton",
+    "description": "A Laravel 8 package skeleton",
+    "keywords": ["laravel", "package", "skeleton"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Binnersley",
+            "email": "abinnersley@gmail.com",
+			"homepage": "https://www.adambinnersley.co.uk"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.4",
+        "orchestra/testbench": "^6.20"
+    },
+	"autoload": {
+        "psr-4": {
+            "VendorName\\MyPackageName\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "VendorName\\MyPackageName\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VendorName\\MyPackageName\\PackageServiceProvider"
+            ],
+            "aliases": {
+                "Helpers": "VendorName\\MyPackageName\\Facades\\Helpers"
+            }
+        }
+    }
+}
